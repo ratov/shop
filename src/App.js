@@ -2,10 +2,15 @@ import React, { useEffect, useState } from "react";
 import { Routes, Route } from "react-router-dom";
 import Home from "./components/Home/Home";
 import Cart from "./components/Cart/Cart";
+import Men from "./components/Men/Men";
+import Women from "./components/Women/Women";
+import Child from "./components/Child/Child";
 import NotFound from "./components/NotFound/NotFound";
 import Header from "./components/Header/Header";
 
 import axios from 'axios';
+
+import "./style/style.scss";
 
 function App() {
 
@@ -27,6 +32,9 @@ function App() {
 			<Header />
 				<Routes>
 					<Route path="/" element={<Home shoes={shoes} />} />
+					<Route path="/men" element={<Men />} />
+					<Route path="/women" element={<Women />} />
+					<Route path="/child" element={<Child />} />
 					<Route path="/cart" element={<Cart />} />
 					<Route path="*" element={<NotFound />} />
 				</Routes>
