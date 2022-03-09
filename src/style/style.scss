@@ -4,6 +4,14 @@
 	box-sizing: border-box;
 }
 
+.header__link > a.active {
+	color: red;
+}
+
+.nav-wrapper {
+	padding: 0 15px;
+}
+
 .home {
 	padding: 50px 0 50px;
 	&__card-image {
@@ -14,14 +22,43 @@
 		font-weight: bold;
 		height: 40px;
 		margin-top: 0;
+		margin-bottom: 3px;
+		line-height: 20px;
+	}
+	&__card-brand {
+		font-size: 18px;
+		margin-bottom: 15px!important;
+	}
+	&__card-color {
+		height: 40px;
 	}
 }
 
 .card {
-	padding: 5px 10px;
+	padding: 5px 10px 15px;
 }
 
 .card .card-content {
 	padding: 0 8px;
 	margin: 15px 0;
 }
+
+.card .card-action {
+	padding: 10px 8px 0;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+
+.card__btn {
+	padding: 7px 25px;
+	cursor: pointer;
+	background-color: red;
+	color: #fff;
+	font-weight: bold;
+	border: none;
+	outline: none;
+	letter-spacing: 1px;
+	border-radius: 5px;
+}
+

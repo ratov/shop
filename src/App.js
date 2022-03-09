@@ -32,9 +32,9 @@ function App() {
 			<Header />
 				<Routes>
 					<Route path="/" element={<Home shoes={shoes} />} />
-					<Route path="/men" element={<Men />} />
-					<Route path="/women" element={<Women />} />
-					<Route path="/child" element={<Child />} />
+					<Route path="/men" element={<Men shoes={shoes} />} />
+					<Route path="/women" element={<Women shoes={shoes} />} />
+					<Route path="/child" element={<Child shoes={shoes} />} />
 					<Route path="/cart" element={<Cart />} />
 					<Route path="*" element={<NotFound />} />
 				</Routes>
