@@ -1,9 +1,10 @@
 import React from 'react';
 
-const Home = () => {
+const Home = ({shoes}) => {
+
 	return (
 		<div>
-			Home
+			{JSON.stringify(shoes)}
 		</div>
 	);
 };
