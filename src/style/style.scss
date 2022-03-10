@@ -62,3 +62,36 @@
 	border-radius: 5px;
 }
 
+.cart__buttons-row {
+	display: flex;
+	column-gap: 10px;
+	justify-content: center;
+}
+
+
+.cart__buttons-row button {
+	cursor: pointer;
+	padding: 3px 7px;
+	border: none;
+	outline: noen;
+	font-weight: bold;
+	color: #fff;
+}
+
+.cart__button-minus {
+	background-color: red;
+}
+.cart__button-plus {
+	background-color: green;
+}
+
+.cart__foot {
+	display: flex;
+	justify-content: space-between;
+	padding-top: 50px;
+	align-items: center;
+}
+
+.cart__pay {
+	cursor: pointer;
+}

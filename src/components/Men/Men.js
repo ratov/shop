@@ -2,9 +2,9 @@ import React from 'react';
 import notImage from '../../assets/notImage.png';
 import Card from '../Card/Card';
 
-const Men = ({ shoes }) => {
+const Men = ({ cart, setCart, shoes }) => {
 	return (
-		<Card shoes={shoes.filter((item) => item.gender === 'men' || item.gender === 'unisex')} />
+		<Card cart={cart} setCart={setCart} shoes={shoes.filter((item) => item.gender === 'men' || item.gender === 'unisex')} />
 	);
 };
 

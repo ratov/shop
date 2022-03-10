@@ -1,9 +1,9 @@
 import React from 'react';
 import Card from '../Card/Card';
 
-const Women = ({shoes}) => {
+const Women = ({ cart, setCart, shoes }) => {
 	return (
-		<Card shoes={shoes.filter((item) => item.gender === 'women' || item.gender === 'unisex')} />
+		<Card cart={cart} setCart={setCart} shoes={shoes.filter((item) => item.gender === 'women' || item.gender === 'unisex')} />
 	);
 };
 

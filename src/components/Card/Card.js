@@ -1,12 +1,26 @@
 import React from 'react';
 import notImage from '../../assets/notImage.png';
 
-const Card = ({shoes}) => {
+const Card = ({ cart, setCart, shoes }) => {
+
+	const addCard = (id) => {
+		const find = cart.findIndex((item) => item.shoe[0].id === id);
+		if (find >= 0) {
+			cart[find].count++;
+			setCart([...cart]);
+		} else {
+			setCart([...cart, {
+				shoe: shoes.filter(item => item.id === id),
+				count: 1
+			}])
+		}
+	};
+
 	return (
 		<section className='home'>
 			<div className="container">
 				<div className="row">
-					{shoes.map((item, idx) => {
+					{shoes.map((item) => {
 						return (
 							<div className="col s12 m4" key={item.id}>
 								<div className="card">
@@ -28,7 +42,7 @@ const Card = ({shoes}) => {
 									</div>
 									<div className="card-action">
 										<a href="#">Learn more</a>
-										<button className='card__btn' type='button'>Buy</button>
+										<button className='card__btn' type='button' onClick={() => addCard(item.id)}>Buy</button>
 									</div>
 								</div>
 							</div>

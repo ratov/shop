@@ -3,10 +3,10 @@ import React from 'react';
 
 import Card from '../Card/Card';
 
-const Home = ({ shoes }) => {
+const Home = ({ cart, setCart, shoes }) => {
 
 	return (
-		<Card shoes={shoes} />
+		<Card cart={cart} setCart={setCart} shoes={shoes} />
 	);
 };
 
