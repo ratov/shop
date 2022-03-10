@@ -1,23 +1,13 @@
-import React from 'react';
+import React, { useContext } from 'react';
+import { CustomContext } from '../../Context';
 import notImage from '../../assets/notImage.png';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSearch } from '@fortawesome/free-solid-svg-icons';
 
-const Card = ({ cart, setCart, shoes }) => {
+const Card = ({ shoes }) => {
 
-	const addCard = (id) => {
-		const find = cart.findIndex((item) => item.shoe[0].id === id);
-		if (find >= 0) {
-			cart[find].count++;
-			setCart([...cart]);
-		} else {
-			setCart([...cart, {
-				shoe: shoes.filter(item => item.id === id),
-				count: 1
-			}])
-		}
-	};
+	const { addCard } = useContext(CustomContext);
 
 	return (
 		<section className='home'>
@@ -54,7 +44,7 @@ const Card = ({ cart, setCart, shoes }) => {
 									</div>
 									<div className="card-action">
 										<a href="#">Learn more</a>
-										<button className='card__btn' type='button' onClick={() => addCard(item.id)}>Buy</button>
+										<button className='card__btn' type='button' onClick={() => addCard(item.id, shoes)}>Buy</button>
 									</div>
 								</div>
 							</div>

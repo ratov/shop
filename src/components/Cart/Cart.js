@@ -1,31 +1,9 @@
-import React from 'react';
+import React, { useContext } from 'react';
+import { CustomContext } from '../../Context';
 
-const Cart = ({ cart, setCart }) => {
+const Cart = () => {
 
-	const plusCountCart = (id) => {
-		setCart(cart.map(item => {
-			if (item.shoe[0].id === id) {
-				return { ...item, count: item.count + 1 }
-			} else {
-				return item;
-			}
-		}));
-	};
-
-	const minusCountCart = (id) => {
-		const find = cart.findIndex((item) => item.shoe[0].id === id);
-		if (cart[find].count < 2) {
-			setCart(cart.filter(item => item.shoe[0].id !== id));
-		} else {
-			setCart(cart.map(item => {
-				if (item.shoe[0].id === id) {
-					return { ...item, count: item.count - 1 }
-				} else {
-					return item;
-				}
-			}));
-		}
-	};
+	const { cart, plusCountCart, minusCountCart } = useContext(CustomContext);
 
 	return (
 		<div className="container">
