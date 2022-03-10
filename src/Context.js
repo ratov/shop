@@ -44,11 +44,16 @@ export const Context = (props) => {
 		}
 	};
 
+	const count = cart.reduce((acc, rec) => {
+		return acc + rec.count;
+	}, 0);
+
 	const value = {
 		cart,
 		addCard,
 		plusCountCart,
-		minusCountCart
+		minusCountCart,
+		count
 	};
 
 	return <CustomContext.Provider value={value}>
