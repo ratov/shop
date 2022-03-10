@@ -1,6 +1,9 @@
 import React from 'react';
 import notImage from '../../assets/notImage.png';
 
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faSearch } from '@fortawesome/free-solid-svg-icons';
+
 const Card = ({ cart, setCart, shoes }) => {
 
 	const addCard = (id) => {
@@ -19,6 +22,15 @@ const Card = ({ cart, setCart, shoes }) => {
 	return (
 		<section className='home'>
 			<div className="container">
+				<div className="row">
+					<div className="input-field col s12 card__input">
+						<input id="search" type="search" className="validate" />
+						<label htmlFor="search">Search</label>
+						<div className="card__search">
+							<FontAwesomeIcon icon={faSearch} />
+						</div>
+					</div>
+				</div>
 				<div className="row">
 					{shoes.map((item) => {
 						return (

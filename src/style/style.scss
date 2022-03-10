@@ -95,3 +95,14 @@
 .cart__pay {
 	cursor: pointer;
 }
+
+.card__search {
+	position: absolute;
+	top: 50%;
+	right: 20px;
+	transform: translate(-50%, -50%);
+}
+
+.card__input {
+	position: relative;
+}
