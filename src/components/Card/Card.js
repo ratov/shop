@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import { CustomContext } from '../../Context';
 import notImage from '../../assets/notImage.png';
 
@@ -7,6 +7,8 @@ import { faSearch } from '@fortawesome/free-solid-svg-icons';
 
 const Card = ({ shoes }) => {
 
+	const [search, setSearch] = useState('');
+
 	const { addCard } = useContext(CustomContext);
 
 	return (
@@ -14,7 +16,7 @@ const Card = ({ shoes }) => {
 			<div className="container">
 				<div className="row">
 					<div className="input-field col s12 card__input">
-						<input id="search" type="search" className="validate" />
+						<input id="search" type="search" className="validate" onChange={(e) => setSearch(e.target.value)} />
 						<label htmlFor="search">Search</label>
 						<div className="card__search">
 							<FontAwesomeIcon icon={faSearch} />
@@ -22,7 +24,7 @@ const Card = ({ shoes }) => {
 					</div>
 				</div>
 				<div className="row">
-					{shoes.map((item) => {
+					{shoes.filter((item) => item.title.toUpperCase().includes(search.toUpperCase())).map((item) => {
 						return (
 							<div className="col s12 m4" key={item.id}>
 								<div className="card">
