@@ -5,6 +5,8 @@ import notImage from '../../assets/notImage.png';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSearch } from '@fortawesome/free-solid-svg-icons';
 
+import images from '../../assets/notfound.png';
+
 const Card = ({ shoes }) => {
 
 	const [search, setSearch] = useState('');
@@ -23,6 +25,12 @@ const Card = ({ shoes }) => {
 						</div>
 					</div>
 				</div>
+				{shoes.filter(item => item.title.toUpperCase().includes(search.toUpperCase())).length === 0 ? <>
+					<h2 className="card__notfound-title">No result found for this request</h2>
+					<img className="card__notfound-img" src={images} alt="No result found for this request" />
+				</>
+					: ''
+				}
 				<div className="row">
 					{shoes.filter((item) => item.title.toUpperCase().includes(search.toUpperCase())).map((item) => {
 						return (
