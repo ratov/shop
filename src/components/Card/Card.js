@@ -48,9 +48,16 @@ const Card = ({ shoes }) => {
 										<p className='home__card-brand home__card-color'>
 											<b>ColorWay:</b> <i>{item.colorway}</i>
 										</p>
-										<p className='home__card-brand home__card-price'>
-											<b>Size:</b> $<i>{item.retailPrice}</i>
-										</p>
+										<div className='home__card-brand home__card-price home__card-size'>
+											<b>Select size:</b>
+												<select>
+													{item.size.map(el => {
+														return (
+															<option key={el} value={el}>{el}</option>
+														);
+													})}
+												</select>
+										</div>
 										<p className='home__card-brand home__card-price'>
 											<b>Price:</b> $<i>{item.retailPrice}</i>
 										</p>

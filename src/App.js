@@ -23,7 +23,17 @@ function App() {
 				'x-rapidapi-host': 'v1-sneakers.p.rapidapi.com',
 				'x-rapidapi-key': '3e13a342fbmsh72a8f276c1fde90p1d98c5jsnc76acad57629'
 			}
-		}).then(({ data }) => setShoes(data.results))
+		}).then(({ data }) => setShoes(data.results.map((item) => {
+			if(item.gender === 'men') {
+				return {...item, size: [38, 39, 40, 41, 42, 43]}
+			} else if(item.gender === 'momen') {
+				return {...item, size: [35, 36, 37, 38, 39, 40, 41]}
+			} else if (item.gender === 'unisex') {
+				return {...item, size: [35, 36, 37, 38, 39, 40, 41, 42, 43]}
+			} else {
+				return {...item, size: [30, 31, 32, 33, 34, 35, 36]}
+			}
+		})))
 			.catch((err) => console.log('Ошибка'))
 	}, []);
 

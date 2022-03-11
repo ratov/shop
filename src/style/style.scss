@@ -174,3 +174,15 @@
 .footer__contact {
 	margin: 0;
 }
+
+select {
+	width: 25%;
+	display: inline-block!important;
+	padding: 5px 15px;
+}
+
+.home__card-size {
+	display: flex;
+	column-gap: 10px;
+	align-items: center;
+}
