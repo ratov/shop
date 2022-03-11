@@ -6,12 +6,11 @@ import Men from "./components/Men/Men";
 import Women from "./components/Women/Women";
 import Child from "./components/Child/Child";
 import NotFound from "./components/NotFound/NotFound";
-import Header from "./components/Header/Header";
 
 import axios from 'axios';
 
 import "./style/style.scss";
-import Footer from "./components/Footer/Footer";
+import Layout from "./components/Layout/Layout";
 
 function App() {
 
@@ -29,18 +28,18 @@ function App() {
 	}, []);
 
 	return (
-			<div className="App">
-				<Header />
-				<Routes>
-					<Route path="/" element={<Home shoes={shoes} />} />
-					<Route path="/men" element={<Men shoes={shoes} />} />
-					<Route path="/women" element={<Women shoes={shoes} />} />
-					<Route path="/child" element={<Child shoes={shoes} />} />
-					<Route path="/cart" element={<Cart />} />
+		<div className="App">
+			<Routes>
+				<Route path="/" element={<Layout />}>
+					<Route path="" element={<Home shoes={shoes} />} />
+					<Route path="men" element={<Men shoes={shoes} />} />
+					<Route path="women" element={<Women shoes={shoes} />} />
+					<Route path="child" element={<Child shoes={shoes} />} />
+					<Route path="cart" element={<Cart />} />
 					<Route path="*" element={<NotFound />} />
-				</Routes>
-				<Footer />
-			</div>
+				</Route>
+			</Routes>
+		</div>
 	);
 }
 

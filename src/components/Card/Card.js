@@ -49,6 +49,9 @@ const Card = ({ shoes }) => {
 											<b>ColorWay:</b> <i>{item.colorway}</i>
 										</p>
 										<p className='home__card-brand home__card-price'>
+											<b>Size:</b> $<i>{item.retailPrice}</i>
+										</p>
+										<p className='home__card-brand home__card-price'>
 											<b>Price:</b> $<i>{item.retailPrice}</i>
 										</p>
 									</div>
