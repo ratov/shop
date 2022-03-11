@@ -11,6 +11,7 @@ import Header from "./components/Header/Header";
 import axios from 'axios';
 
 import "./style/style.scss";
+import Footer from "./components/Footer/Footer";
 
 function App() {
 
@@ -38,6 +39,7 @@ function App() {
 					<Route path="/cart" element={<Cart />} />
 					<Route path="*" element={<NotFound />} />
 				</Routes>
+				<Footer />
 			</div>
 	);
 }

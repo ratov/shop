@@ -135,3 +135,42 @@
 .card__notfound-title {
 	text-align: center;
 }
+
+.footer {
+	color: #fff;
+	background-color: #ee6e73;
+	width: 100%;
+	padding-bottom: 40px;
+	padding-top: 40px;
+}
+
+.footer__row {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+
+.footer__col {
+	display: flex;
+	flex-direction: column;
+	row-gap: 20px;
+}
+
+.footer__icons-block {
+	display: flex;
+	padding: 0 10px;
+	column-gap: 10px;
+}
+
+.footer__icons {
+	font-size: 23px;
+	color: #fff;
+}
+
+.footer__logo {
+	margin: 0;
+}
+
+.footer__contact {
+	margin: 0;
+}
