@@ -5,6 +5,8 @@ import notImage from '../../assets/notImage.png';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSearch } from '@fortawesome/free-solid-svg-icons';
 
+import { Link } from 'react-router-dom';
+
 import images from '../../assets/notfound.png';
 
 const Card = ({ shoes, setShoes }) => {
@@ -73,7 +75,7 @@ const Card = ({ shoes, setShoes }) => {
 										</p>
 									</div>
 									<div className="card-action">
-										<a href="#">Learn more</a>
+										<Link to={`/shoes/${item.title.split(' ').join('-')}`}>Learn more</Link>
 										<button className='card__btn' type='button' onClick={() => addCard(item.id, shoes, item.defaultSize)}>Buy</button>
 									</div>
 								</div>

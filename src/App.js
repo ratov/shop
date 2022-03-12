@@ -11,6 +11,7 @@ import axios from 'axios';
 
 import "./style/style.scss";
 import Layout from "./components/Layout/Layout";
+import ShoeMoreInfo from "./components/ShoeMoreInfo/ShoeMoreInfo";
 
 function App() {
 
@@ -42,6 +43,7 @@ function App() {
 			<Routes>
 				<Route path="/" element={<Layout />}>
 					<Route path="" element={<Home shoes={shoes} setShoes={setShoes} />} />
+					<Route path="shoes/:title" element={<ShoeMoreInfo shoes={shoes} />} />
 					<Route path="men" element={<Men shoes={shoes} setShoes={setShoes} />} />
 					<Route path="women" element={<Women shoes={shoes} setShoes={setShoes} />} />
 					<Route path="child" element={<Child shoes={shoes} setShoes={setShoes} />} />
