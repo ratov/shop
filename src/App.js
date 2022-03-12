@@ -24,14 +24,14 @@ function App() {
 				'x-rapidapi-key': '3e13a342fbmsh72a8f276c1fde90p1d98c5jsnc76acad57629'
 			}
 		}).then(({ data }) => setShoes(data.results.map((item) => {
-			if(item.gender === 'men') {
-				return {...item, size: [38, 39, 40, 41, 42, 43]}
-			} else if(item.gender === 'momen') {
-				return {...item, size: [35, 36, 37, 38, 39, 40, 41]}
+			if (item.gender === 'men') {
+				return { ...item, size: [38, 39, 40, 41, 42, 43], defaultSize: 38 }
+			} else if (item.gender === 'momen') {
+				return { ...item, size: [35, 36, 37, 38, 39, 40, 41], defaultSize: 35 }
 			} else if (item.gender === 'unisex') {
-				return {...item, size: [35, 36, 37, 38, 39, 40, 41, 42, 43]}
+				return { ...item, size: [35, 36, 37, 38, 39, 40, 41, 42, 43], defaultSize: 35 }
 			} else {
-				return {...item, size: [30, 31, 32, 33, 34, 35, 36]}
+				return { ...item, size: [30, 31, 32, 33, 34, 35, 36], defaultSize: 30 }
 			}
 		})))
 			.catch((err) => console.log('Ошибка'))
@@ -41,10 +41,10 @@ function App() {
 		<div className="App">
 			<Routes>
 				<Route path="/" element={<Layout />}>
-					<Route path="" element={<Home shoes={shoes} />} />
-					<Route path="men" element={<Men shoes={shoes} />} />
-					<Route path="women" element={<Women shoes={shoes} />} />
-					<Route path="child" element={<Child shoes={shoes} />} />
+					<Route path="" element={<Home shoes={shoes} setShoes={setShoes} />} />
+					<Route path="men" element={<Men shoes={shoes} setShoes={setShoes} />} />
+					<Route path="women" element={<Women shoes={shoes} setShoes={setShoes} />} />
+					<Route path="child" element={<Child shoes={shoes} setShoes={setShoes} />} />
 					<Route path="cart" element={<Cart />} />
 					<Route path="*" element={<NotFound />} />
 				</Route>

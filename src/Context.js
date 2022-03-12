@@ -6,8 +6,8 @@ export const Context = (props) => {
 
 	const [cart, setCart] = useState([]);
 
-	const addCard = (id, shoes) => {
-		const find = cart.findIndex((item) => item.shoe[0].id === id);
+	const addCard = (id, shoes, size) => {
+		const find = cart.findIndex((item) => item.shoe[0].id === id && item.shoe[0].defaultSize === size);
 		if (find >= 0) {
 			cart[find].count++;
 			setCart([...cart]);
@@ -19,9 +19,9 @@ export const Context = (props) => {
 		}
 	};
 
-	const plusCountCart = (id) => {
+	const plusCountCart = (id, size) => {
 		setCart(cart.map(item => {
-			if (item.shoe[0].id === id) {
+			if (item.shoe[0].id === id && item.shoe[0].defaultSize === size) {
 				return { ...item, count: item.count + 1 }
 			} else {
 				return item;
@@ -29,13 +29,13 @@ export const Context = (props) => {
 		}));
 	};
 
-	const minusCountCart = (id) => {
-		const find = cart.findIndex((item) => item.shoe[0].id === id);
+	const minusCountCart = (id, size) => {
+		const find = cart.findIndex((item) => item.shoe[0].id === id && item.shoe[0].defaultSize === size);
 		if (cart[find].count < 2) {
-			setCart(cart.filter(item => item.shoe[0].id !== id));
+			setCart(cart.filter(item => item.shoe[0].id !== id || item.shoe[0].defaultSize !== size));
 		} else {
 			setCart(cart.map(item => {
-				if (item.shoe[0].id === id) {
+				if (item.shoe[0].id === id && item.shoe[0].defaultSize === size) {
 					return { ...item, count: item.count - 1 }
 				} else {
 					return item;

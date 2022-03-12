@@ -7,11 +7,21 @@ import { faSearch } from '@fortawesome/free-solid-svg-icons';
 
 import images from '../../assets/notfound.png';
 
-const Card = ({ shoes }) => {
+const Card = ({ shoes, setShoes }) => {
 
 	const [search, setSearch] = useState('');
 
 	const { addCard } = useContext(CustomContext);
+
+	const changeDefaultSize = (id, size) => {
+		setShoes(shoes.map(item => {
+			if (id === item.id) {
+				return { ...item, defaultSize: size }
+			} else {
+				return item;
+			}
+		}))
+	};
 
 	return (
 		<section className='home'>
@@ -50,13 +60,13 @@ const Card = ({ shoes }) => {
 										</p>
 										<div className='home__card-brand home__card-price home__card-size'>
 											<b>Select size:</b>
-												<select>
-													{item.size.map(el => {
-														return (
-															<option key={el} value={el}>{el}</option>
-														);
-													})}
-												</select>
+											<select defaultValue={item.defaultSize} onChange={(e) => { changeDefaultSize(item.id, e.target.value) }}>
+												{item.size.map((el) => {
+													return (
+														<option key={el} value={el}>{el}</option>
+													);
+												})}
+											</select>
 										</div>
 										<p className='home__card-brand home__card-price'>
 											<b>Price:</b> $<i>{item.retailPrice}</i>
@@ -64,7 +74,7 @@ const Card = ({ shoes }) => {
 									</div>
 									<div className="card-action">
 										<a href="#">Learn more</a>
-										<button className='card__btn' type='button' onClick={() => addCard(item.id, shoes)}>Buy</button>
+										<button className='card__btn' type='button' onClick={() => addCard(item.id, shoes, item.defaultSize)}>Buy</button>
 									</div>
 								</div>
 							</div>

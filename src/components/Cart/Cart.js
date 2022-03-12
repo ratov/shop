@@ -19,6 +19,7 @@ const Cart = () => {
 						<thead>
 							<tr>
 								<th>Shoes Name</th>
+								<th>Shoes Size</th>
 								<th>Shoes Count</th>
 								<th>Action</th>
 								<th>Shoes Price</th>
@@ -27,12 +28,13 @@ const Cart = () => {
 						<tbody>
 							{cart.map((item, idx) => {
 								return (
-									<tr key={item.shoe[0].id}>
+									<tr key={`${item.shoe[0].id}${item.shoe[0].defaultSize}`}>
 										<td>{item.shoe[0].shoe}</td>
+										<td>{item.shoe[0].defaultSize}</td>
 										<td>{item.count}</td>
 										<td className="cart__buttons-row">
-											<button type="button" className="cart__button-plus" onClick={() => plusCountCart(item.shoe[0].id)}>+</button>
-											<button type="button" className="cart__button-minus" onClick={() => minusCountCart(item.shoe[0].id)}>-</button>
+											<button type="button" className="cart__button-plus" onClick={() => plusCountCart(item.shoe[0].id, item.shoe[0].defaultSize)}>+</button>
+											<button type="button" className="cart__button-minus" onClick={() => minusCountCart(item.shoe[0].id, item.shoe[0].defaultSize)}>-</button>
 										</td>
 										<td>$ {item.shoe[0].retailPrice * item.count}</td>
 									</tr>
