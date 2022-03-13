@@ -176,7 +176,7 @@
 }
 
 select {
-	width: 35%;
+	//width: 35%;
 	display: inline-block!important;
 	padding: 5px 15px;
 }
@@ -184,5 +184,40 @@ select {
 .home__card-size {
 	display: flex;
 	column-gap: 10px;
+	align-items: center;
+}
+
+.shoeMore__row {
+	display: flex;
+	column-gap: 40px;
+}
+
+.shoeMore__col-img {
+	width: 60%;
+	img {
+		width: 100%;
+	}
+}
+
+.shoeMore__col-details {
+	width: 40%;
+}
+
+.home__card-size b {
+	white-space: nowrap;
+}
+
+.home__card-size select {
+	width: 100px;
+}
+
+.shoeMore__number {
+	width: 40px!important;
+	padding-left: 10px!important;
+}
+
+.shoeMore__pay {
+	display: flex;
+	column-gap: 25px;
 	align-items: center;
 }

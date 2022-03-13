@@ -1,5 +1,4 @@
-import React, { useContext, useState } from 'react';
-import { CustomContext } from '../../Context';
+import React, { useState } from 'react';
 import notImage from '../../assets/notImage.png';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -8,22 +7,12 @@ import { faSearch } from '@fortawesome/free-solid-svg-icons';
 import { Link } from 'react-router-dom';
 
 import images from '../../assets/notfound.png';
+import ChangeSize from '../ChangeSize/ChangeSize';
+import BuyButton from '../BuyButton/BuyButton';
 
 const Card = ({ shoes, setShoes }) => {
 
 	const [search, setSearch] = useState('');
-
-	const { addCard } = useContext(CustomContext);
-
-	const changeDefaultSize = (id, size) => {
-		setShoes(shoes.map(item => {
-			if (id === item.id) {
-				return { ...item, defaultSize: size }
-			} else {
-				return item;
-			}
-		}))
-	};
 
 	return (
 		<section className='home'>
@@ -60,23 +49,14 @@ const Card = ({ shoes, setShoes }) => {
 										<p className='home__card-brand home__card-color'>
 											<b>ColorWay:</b> <i>{item.colorway}</i>
 										</p>
-										<div className='home__card-brand home__card-price home__card-size'>
-											<b>Select size:</b>
-											<select defaultValue={item.defaultSize} onChange={(e) => { changeDefaultSize(item.id, e.target.value) }}>
-												{item.size.map((el) => {
-													return (
-														<option key={el} value={el}>{el}</option>
-													);
-												})}
-											</select>
-										</div>
+										<ChangeSize item={item} shoes={shoes} setShoes={setShoes} />
 										<p className='home__card-brand home__card-price'>
 											<b>Price:</b> $<i>{item.retailPrice}</i>
 										</p>
 									</div>
 									<div className="card-action">
 										<Link to={`/shoes/${item.title.split(' ').join('-')}`}>Learn more</Link>
-										<button className='card__btn' type='button' onClick={() => addCard(item.id, shoes, item.defaultSize)}>Buy</button>
+										<BuyButton item={item} shoes={shoes} count={1} />
 									</div>
 								</div>
 							</div>

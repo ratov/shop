@@ -6,15 +6,15 @@ export const Context = (props) => {
 
 	const [cart, setCart] = useState([]);
 
-	const addCard = (id, shoes, size) => {
+	const addCard = (id, shoes, size, count) => {
 		const find = cart.findIndex((item) => item.shoe[0].id === id && item.shoe[0].defaultSize === size);
 		if (find >= 0) {
-			cart[find].count++;
+			cart[find].count = cart[find].count + count;
 			setCart([...cart]);
 		} else {
 			setCart([...cart, {
 				shoe: shoes.filter(item => item.id === id),
-				count: 1
+				count: count
 			}])
 		}
 	};
