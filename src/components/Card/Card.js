@@ -3,16 +3,28 @@ import notImage from '../../assets/notImage.png';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSearch } from '@fortawesome/free-solid-svg-icons';
+import { faHeart } from '@fortawesome/free-regular-svg-icons';
 
 import { Link } from 'react-router-dom';
 
 import images from '../../assets/notfound.png';
 import ChangeSize from '../ChangeSize/ChangeSize';
 import BuyButton from '../BuyButton/BuyButton';
+import Full from '../Hearts/Hearts';
 
 const Card = ({ shoes, setShoes }) => {
 
 	const [search, setSearch] = useState('');
+
+	const favoriteHandler = (id) => {
+		setShoes(shoes.map(item => {
+			if (item.id === id) {
+				return { ...item, favorite: !item.favorite }
+			} else {
+				return item;
+			}
+		}))
+	}
 
 	return (
 		<section className='home'>
@@ -26,10 +38,11 @@ const Card = ({ shoes, setShoes }) => {
 						</div>
 					</div>
 				</div>
-				{shoes.filter(item => item.title.toUpperCase().includes(search.toUpperCase())).length === 0 ? <>
-					<h2 className="card__notfound-title">No result found for this request</h2>
-					<img className="card__notfound-img" src={images} alt="No result found for this request" />
-				</>
+				{shoes.filter(item => item.title.toUpperCase().includes(search.toUpperCase())).length === 0 ?
+					<>
+						<h2 className="card__notfound-title">No result found for this request</h2>
+						<img className="card__notfound-img" src={images} alt="No result found for this request" />
+					</>
 					: ''
 				}
 				<div className="row">
@@ -48,6 +61,11 @@ const Card = ({ shoes, setShoes }) => {
 									<div className="card-action">
 										<Link to={`/shoes/${item.title.split(' ').join('-')}`}>Learn more</Link>
 										<BuyButton item={item} shoes={shoes} count={1} />
+									</div>
+									<div className="card-like" onClick={() => {
+										favoriteHandler(item.id)
+									}}>
+										{item.favorite ? <Full /> : <FontAwesomeIcon icon={faHeart} />}
 									</div>
 								</div>
 							</div>

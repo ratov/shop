@@ -26,13 +26,13 @@ function App() {
 			}
 		}).then(({ data }) => setShoes(data.results.map((item) => {
 			if (item.gender === 'men') {
-				return { ...item, size: [38, 39, 40, 41, 42, 43], defaultSize: 38, count: 1 }
+				return { ...item, size: [38, 39, 40, 41, 42, 43], defaultSize: 38, favorite: false }
 			} else if (item.gender === 'momen') {
-				return { ...item, size: [35, 36, 37, 38, 39, 40, 41], defaultSize: 35, count: 1 }
+				return { ...item, size: [35, 36, 37, 38, 39, 40, 41], defaultSize: 35, favorite: false }
 			} else if (item.gender === 'unisex') {
-				return { ...item, size: [35, 36, 37, 38, 39, 40, 41, 42, 43], defaultSize: 35, count: 1 }
+				return { ...item, size: [35, 36, 37, 38, 39, 40, 41, 42, 43], defaultSize: 35, favorite: false }
 			} else {
-				return { ...item, size: [30, 31, 32, 33, 34, 35, 36], defaultSize: 30, count: 1 }
+				return { ...item, size: [30, 31, 32, 33, 34, 35, 36], defaultSize: 30, favorite: false }
 			}
 		})))
 			.catch((err) => console.log('Ошибка'))

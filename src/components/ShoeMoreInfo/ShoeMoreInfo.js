@@ -42,7 +42,7 @@ const ShoeMoreInfo = ({ shoes, setShoes }) => {
 									</div>
 								</div>
 								<h4>Описание</h4>
-								<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ratione sed nulla deserunt! Maxime, vel eaque? Voluptates porro eaque vero hic minima numquam voluptatum quam beatae earum rerum tenetur quo tempora quibusdam, itaque voluptate quidem iusto ex! Rerum maiores consectetur veniam amet, voluptatum nam deleniti modi quos. Ipsa incidunt nostrum enim!</p>
+								<p className="shoeMore__description">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ratione sed nulla deserunt! Maxime, vel eaque? Voluptates porro eaque vero hic minima numquam voluptatum quam beatae earum rerum tenetur quo tempora quibusdam, itaque voluptate quidem iusto ex! Rerum maiores consectetur veniam amet, voluptatum nam deleniti modi quos. Ipsa incidunt nostrum enim!</p>
 
 							</div>
 						);
