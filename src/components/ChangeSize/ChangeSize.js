@@ -13,16 +13,28 @@ const ChangeSize = ({ item, shoes, setShoes }) => {
 	};
 
 	return (
-		<div className='home__card-brand home__card-price home__card-size'>
-			<b>Select size:</b>
-			<select defaultValue={item.defaultSize} onChange={(e) => { changeDefaultSize(item.id, e.target.value) }}>
-				{item.size.map((el) => {
-					return (
-						<option key={el} value={el}>{el}</option>
-					);
-				})}
-			</select>
-		</div>
+		<>
+			<p className='home__card-brand'>
+				<b>Gender:</b> <i>{item.gender}</i>
+			</p>
+			<p className='home__card-brand home__card-color'>
+				<b>ColorWay:</b> <i>{item.colorway}</i>
+			</p>
+			<div className='home__card-brand home__card-price home__card-size'>
+				<b>Select size:</b>
+				<select defaultValue={item.defaultSize} onChange={(e) => { changeDefaultSize(item.id, e.target.value) }}>
+					{item.size.map((el) => {
+						return (
+							<option key={el} value={el}>{el}</option>
+						);
+					})}
+				</select>
+			</div>
+			<p className='home__card-brand home__card-price'>
+				<b>Price:</b> $<i>{item.retailPrice}</i>
+			</p>
+		</>
+
 	);
 };
 
