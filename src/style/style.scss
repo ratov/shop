@@ -144,6 +144,13 @@
 	padding-top: 40px;
 }
 
+.App {
+	min-height: 100vh;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
 .footer__row {
 	display: flex;
 	justify-content: space-between;
