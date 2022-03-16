@@ -12,6 +12,8 @@ import axios from 'axios';
 import "./style/style.scss";
 import Layout from "./components/Layout/Layout";
 import ShoeMoreInfo from "./components/ShoeMoreInfo/ShoeMoreInfo";
+import Login from "./components/Login/Login";
+import Register from "./components/Register/Register";
 
 function App() {
 
@@ -41,6 +43,8 @@ function App() {
 	return (
 		<div className="App">
 			<Routes>
+				<Route path="/login" element={<Login />} />
+				<Route path="/register" element={<Register />} />
 				<Route path="/" element={<Layout />}>
 					<Route path="" element={<Home shoes={shoes} setShoes={setShoes} />} />
 					<Route path="shoes/:title" element={<ShoeMoreInfo shoes={shoes} setShoes={setShoes} />} />
