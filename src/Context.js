@@ -48,12 +48,40 @@ export const Context = (props) => {
 		return acc + rec.count;
 	}, 0);
 
+	const [user, setUser] = useState({
+		userName: 'user',
+		email: null,
+		token: null,
+		id: null
+	});
+
+	const addUser = (state) => {
+		setUser({
+			...user,
+			email: state.email,
+			token: state.token,
+			id: state.id
+		})
+	};
+
+	const removeUser = () => {
+		setUser({
+			...user,
+			email: null,
+			token: null,
+			id: null
+		})
+	};
+
 	const value = {
 		cart,
 		addCard,
 		plusCountCart,
 		minusCountCart,
-		count
+		count,
+		user,
+		addUser,
+		removeUser
 	};
 
 	return <CustomContext.Provider value={value}>

@@ -4,7 +4,7 @@ import { CustomContext } from '../../Context';
 
 const Header = () => {
 
-	const { count } = useContext(CustomContext);
+	const { count, removeUser } = useContext(CustomContext);
 
 	return (
 		<header>
@@ -20,6 +20,9 @@ const Header = () => {
 							<span className="header__cart-count">
 								{count < 1 ? '' : count > 9 ? '9+' : count }
 							</span>
+						</li>
+						<li className="header__link">
+							<Link to="/" onClick={() => removeUser()}>Log out</Link>
 						</li>
 					</ul>
 				</div>
