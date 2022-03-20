@@ -1,18 +1,18 @@
 import React, { useContext } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faGoogle } from '@fortawesome/free-brands-svg-icons';
-import { getAuth, GoogleAuthProvider, signInWithPopup } from "firebase/auth";
+import { faGithub } from '@fortawesome/free-brands-svg-icons';
+
+import { getAuth, signInWithPopup, GithubAuthProvider } from "firebase/auth";
+
 import { CustomContext } from "../../Context";
 
-const Google = ({ navigate }) => {
+const GitHub = ({ navigate }) => {
 
+	const provider = new GithubAuthProvider();
 	const { addUser } = useContext(CustomContext);
-	const provider = new GoogleAuthProvider();
 
-	const addUserWithGoogle = () => {
+	const addUserWidthGitHub = () => {
 		const auth = getAuth();
-		auth.languageCode = 'it';
-
 		signInWithPopup(auth, provider)
 			.then(({ user }) => {
 				console.log(user);
@@ -22,14 +22,14 @@ const Google = ({ navigate }) => {
 					id: user.uid
 				});
 				navigate('/');
-			}).catch(console.error);
-	};
+			}).catch(console.log);
+	}
 
 	return (
-		<li className="form__list-item" onClick={() => addUserWithGoogle()}>
-			<FontAwesomeIcon icon={faGoogle} />
+		<li className="form__list-item">
+			<FontAwesomeIcon icon={faGithub} onClick={() => addUserWidthGitHub()} />
 		</li>
 	);
 };
 
-export default Google;
+export default GitHub;
